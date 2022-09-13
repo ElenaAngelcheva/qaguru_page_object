@@ -56,7 +56,7 @@ def test_register_student():
     cityes = Dropdown(browser.element('#city'))
     cityes.autocomplete(option='Jaipur')
 
-    browser.element('#submit').perform(command.js.scroll_into_view).click()
+    browser.element('#submit').perform(command.js.click)
 
 
     #THEN
