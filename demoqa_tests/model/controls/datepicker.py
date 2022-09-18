@@ -7,15 +7,24 @@ class DatePicker:
     def __init__(self, element: Element):
         self.element = element
 
-    def explicit_input(self, option: str):
+        def __init__(self, element: Element):
+            self.element = element
+
+    def explicit_input(self, option: int):
         self.element.perform(command.js.set_value(option)).click()
 
     def select_year(self, option: int):
         self.element.click()
         browser.element('.react-datepicker__year-select').element(f'[value="{option}"]').click()
+        return self
 
     def select_month(self, option: int):
-        browser.element('.react-datepicker__month-select').element(f'[value="{option}"]').click()
+        browser.element('.react-datepicker__month-select').element(f'[value="{option-1}"]').click()
+        return self
 
     def select_day(self, option: int):
-        browser.element(f'.react-datepicker__day--00{option}').click()
+        if option > 9:
+            browser.element(f'.react-datepicker__day--0{option}').click()
+        else:
+            browser.element(f'.react-datepicker__day--00{option}').click()
+        return self
