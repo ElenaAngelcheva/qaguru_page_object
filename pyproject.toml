@@ -1,2 +1,2 @@
-[tool.pytest.ini_options]
-addopts="-l -vs --alluredir=allure-results --clean-alluredir"
+#[tool.pytest.ini_options]
+#addopts="-l -vs --alluredir=allure-results --clean-alluredir"

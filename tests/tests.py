@@ -1,28 +1,26 @@
 import allure
-
 from demoqa_tests.model.application_manager import app
 from demoqa_tests.model.date import User
 
+@allure.title("Successful fill form")
+def test_register_student(setup_browser):
+    student = User(
+        first_name='Ivan',
+        last_name= 'Ivanov',
+        email='ivanov@bk.ru',
+        gender='Male',
+        mobile_number='8999999999',
+        birth_year=1999,
+        birth_month=8,
+        birth_day=11,
+        subject=['Arts', 'Hindi', 'Economics'],
+        hobbi=['Sports', 'Reading', 'Music'],
+        photo='picture.jpg',
+        current_address='test',
+        state='Rajasthan',
+        city='Jaipur',
+    )
 
-student = User(
-    first_name='Ivan',
-    last_name= 'Ivanov',
-    email='ivanov@bk.ru',
-    gender='Male',
-    mobile_number='8999999999',
-    birth_year=1999,
-    birth_month=8,
-    birth_day=11,
-    subject=['Arts', 'Hindi', 'Economics'],
-    hobbi=['Sports', 'Reading', 'Music'],
-    photo='picture.jpg',
-    current_address='test',
-    state='Rajasthan',
-    city='Jaipur',
-)
-
-
-def test_register_student():
     with allure.step("Open registrations form"):
         app.registration_form.open()
 
@@ -52,3 +50,5 @@ def test_register_student():
         app.resalt.sould_have_row_with_exact_texst(7, 'Picture', student.photo)
         app.resalt.sould_have_row_with_exact_texst(8, 'Address', student.current_address)
         app.resalt.sould_have_row_with_exact_texst(9, 'State and City', student.state_and_city(student.state, student.city))
+
+

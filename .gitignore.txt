@@ -1,4 +1,5 @@
 # User-specific stuff
+.env
 *.pyc
 *.pyo
 *.swp

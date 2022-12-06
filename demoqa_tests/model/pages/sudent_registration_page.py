@@ -8,7 +8,7 @@ from demoqa_tests.model.controls.tegs_input import TagsInput
 
 class StudentRegistrationPage:
     def open(self):
-        browser.open('/automation-practice-form')
+        browser.open('https://demoqa.com/automation-practice-form')
         return self
 
     def set_first_name(self, value):
